@@ -1,0 +1,12 @@
+project_identifier: social-media-app
+api_key_env: 8ced9aa6a209ec6b4f52d84f01ed1f72
+files:
+  - source: /src/i18n/locales/es.json
+    translation: /src/i18n/locales/%language%.json
+    languages_mapping:
+      language:
+        es: es
+        en: en
+        fr: fr
+        de: de
+        pt: pt

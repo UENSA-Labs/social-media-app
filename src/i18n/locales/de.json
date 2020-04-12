@@ -1,7 +1,15 @@
 {
+<<<<<<< HEAD
   "language.es": "Spanisch",
   "language.fr": "Französisch",
   "language.de": "Deutsch",
   "language.en": "Englisch",
   "language.pt": "Portugiesisch"
+=======
+  "language.es": "Español",
+  "language.fr": "Frances",
+  "language.de": "Alemán",
+  "language.en": "Inglés",
+  "language.pt": "Portugues"
+>>>>>>> develop
 }
