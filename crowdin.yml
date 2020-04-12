@@ -1,6 +1,5 @@
 project_identifier: social-media-app
 api_key_env: 8ced9aa6a209ec6b4f52d84f01ed1f72
-base_path: .
 files:
   - source: /src/i18n/locales/es.json
     translation: /src/i18n/locales/%language%.json
