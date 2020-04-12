@@ -1,10 +1,10 @@
 // flow
 import React from 'react';
-import logo from './logo.svg';
+import logo from '../../logo.svg';
 import { Button } from '@material-ui/core';
 import styles from './styles.module.scss';
 
-function App() {
+function Home() {
   return (
     <div className={styles.app}>
       <header className={styles.appHeader}>
@@ -26,4 +26,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
