@@ -13,5 +13,5 @@ jobs:
         with:
           node-version: 12
       - run: npm ci
-      - run: npm flow
+      - run: npm run flow
       - run: npm run build
