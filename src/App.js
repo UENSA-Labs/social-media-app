@@ -1,3 +1,4 @@
+// flow
 import React from 'react';
 import logo from './logo.svg';
 import { Button } from '@material-ui/core';
