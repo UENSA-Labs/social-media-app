@@ -2,7 +2,7 @@ name: CI / Node Continuous Integration
 
 on:
   pull_request:
-    branches: [master]
+    branches: [develop]
 
 jobs:
   test_pull_request:
