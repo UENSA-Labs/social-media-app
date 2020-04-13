@@ -10,7 +10,9 @@ const App = ({ children }: AppProps) => {
   return (
     <div>
       <Header />
+      <div>
       {children}
+      </div>
     </div>
   );
 };
