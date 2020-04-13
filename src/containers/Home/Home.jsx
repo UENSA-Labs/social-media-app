@@ -1,7 +1,7 @@
 // flow
 import React from 'react';
-import logo from '../../logo.svg';
 import { Button } from '@material-ui/core';
+import logo from '../../logo.svg';
 import styles from './styles.module.scss';
 
 function Home() {
@@ -10,7 +10,11 @@ function Home() {
       <header className={styles.appHeader}>
         <img src={logo} className={styles.appLogo} alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Edit
+          {' '}
+          <code>src/App.js</code>
+          {' '}
+          and save to reload.
         </p>
         <a
           className={styles.appLink}

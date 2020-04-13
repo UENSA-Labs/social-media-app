@@ -1,23 +1,23 @@
 // @flow
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
-import App from './containers/App/index';
-import Home from './containers/Home/Home';
-import Profile from './containers/Profile/index';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
 } from 'react-router-dom';
+import App from './containers/App/index';
+import Home from './containers/Home/Home';
+import Profile from './containers/Profile/index';
+import './styles.scss';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Switch>
         <Route
-          path={`/es`}
+          path="/es"
           render={({ match }) => (
             <App>
               <Switch>
@@ -35,5 +35,5 @@ ReactDOM.render(
       <Redirect to="/es" />
     </Router>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );

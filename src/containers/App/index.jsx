@@ -1,20 +1,19 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import Header from '../../components/Header';
 
-type AppProps = {
-  children: Node
+export type AppProps = {
+  children: Node,
 };
 
-const App = ({ children }: AppProps) => {
-  return (
+const App = ({ children }: AppProps) => (
+  <div>
+    <Header />
     <div>
-      <Header />
-      <div>
       {children}
-      </div>
     </div>
-  );
-};
+  </div>
+);
 
 export default App;

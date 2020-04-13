@@ -4,7 +4,9 @@ import pt from './locales/pt.json';
 import fr from './locales/fr.json';
 import en from './locales/en.json';
 
-const translations = { es, de, pt, fr, en };
+const translations = {
+  es, de, pt, fr, en,
+};
 
 
 export default translations;
