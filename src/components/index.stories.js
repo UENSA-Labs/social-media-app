@@ -35,7 +35,7 @@ export const Header = () => {
           <Typography variant="h6" className={classes.title}>
             Social Media App
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit">Loginn</Button>
         </Toolbar>
       </AppBar>
     </div>
