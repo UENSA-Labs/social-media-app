@@ -17,7 +17,7 @@ import React, { useContext } from 'react';
 import { ThemeContext } from '@/context/ThemeProvider';
 
 export default Component = () => {
- const { themeStyles } = useContext(ThemeContext);
+ const { theme, themeStyles } = useContext(ThemeContext);
 
  return <h1 style={themeStyles}>{theme}</h1>;
 };
