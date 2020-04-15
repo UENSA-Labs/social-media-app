@@ -1,4 +1,4 @@
-{
+export default {
   "language.es": "Spanisch",
   "language.fr": "Französisch",
   "language.de": "Deutsch",

@@ -1,6 +1,8 @@
 // @flow
 import React, { useState, useEffect } from 'react';
 import type { Node } from 'react';
+import { IntlProvider } from 'react-intl';
+import translations from '../../i18n/translations';
 import Header from '../../components/Header';
 import * as firebase from 'firebase';
 
@@ -9,10 +11,10 @@ export type AppProps = {
 };
 
 const App = ({ children }: AppProps) => {
-
   const [logged, setLogged] = useState(false);
   const [user, setUser] = useState({});
   const [error, setError] = useState({});
+  const [locale, setLocale] = useState('es');
 
   const login = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -45,13 +47,21 @@ const App = ({ children }: AppProps) => {
 
   };
 
+  const changeLocale = (lang: string) => setLocale(lang);
+  const localesArray = Object.keys(translations);
+
   return (
-    <div>
-      <Header login={login} logged={logged} />
+    <IntlProvider 
+      locale={locale}
+      messages={translations[`${locale}`]}
+    >
       <div>
-        {children}
+        <Header login={login} logged={logged} locale={locale} handleLocale={changeLocale} localesArray={localesArray}/>
+        <div>
+          {children}
+        </div>
       </div>
-    </div>
+    </IntlProvider>
   );
 };
 
