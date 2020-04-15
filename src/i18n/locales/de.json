@@ -1,7 +1,11 @@
 {
+  "language": "Idioma",
   "language.es": "Spanisch",
   "language.fr": "Französisch",
   "language.de": "Deutsch",
   "language.en": "Englisch",
-  "language.pt": "Portugiesisch"
+  "language.pt": "Portugiesisch",
+  "login": "Español",
+  "welcome": "Bienvenido",
+  "github": "Github"
 }
