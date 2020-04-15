@@ -15,8 +15,12 @@ import Home from './containers/Home/Home';
 import Profile from './containers/Profile/index';
 import './styles.scss';
 import { firebaseConfig } from './helpers/config';
+import translations from './i18n/translations';
 
+const availableLocales = Object.keys(translations).join('|');
 const app = initializeApp(firebaseConfig);
+
+const redirectLocale= localStorage.getItem('locale') || 'es';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -25,22 +29,19 @@ ReactDOM.render(
         <Router>
           <Switch>
             <Route
-              path="/es"
+              path={`/:locale(${availableLocales})`}     
               render={({ match }) => (
                 <App>
                   <Switch>
                     <Route exact path={`${match.url}`} component={Home} />
                     <Route exact path={`${match.url}/profile`} component={Home} />
-                    <Route
-                      path={`${match.url}/profile/:username`}
-                      component={Profile}
-                    />
+                    <Route path={`${match.url}/profile/:username`} component={Profile} />
                   </Switch>
                 </App>
               )}
             />
           </Switch>
-          <Redirect to="/es" />
+          <Redirect to={redirectLocale} />
         </Router>
       </ThemeProvider>
     </LocaleProvider>

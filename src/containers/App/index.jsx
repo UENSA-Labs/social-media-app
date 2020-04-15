@@ -47,13 +47,16 @@ const App = ({ children }: AppProps) => {
 
   };
 
+  const changeLocale = (lang: string) => setLocale(lang);
+  const localesArray = Object.keys(translations);
+
   return (
     <IntlProvider 
       locale={locale}
       messages={translations[`${locale}`]}
     >
       <div>
-        <Header login={login} logged={logged} handleLocale={(lang) => setLocale(lang)}/>
+        <Header login={login} logged={logged} locale={locale} handleLocale={changeLocale} localesArray={localesArray}/>
         <div>
           {children}
         </div>

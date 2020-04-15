@@ -1,6 +1,7 @@
 // @flow
 import React, { useContext }  from 'react';
-import { FormattedMessage } from 'react-intl';
+import { Link } from 'react-router-dom';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import { ThemeContext } from '../../context/ThemeProvider';
 import { makeStyles } from '@material-ui/core/styles';
 import { 
@@ -12,7 +13,8 @@ import {
   Switch,
   InputLabel,
   MenuItem,
-  Select
+  Select,
+  FormControl
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 
@@ -26,18 +28,31 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  }
 }));
 
 export type HeaderProps = {
+  intl: any,
   login: Function,
   logged: boolean,
   handleLocale: Function,
+  locale: string,
+  localesArray: Array<string>,
 };
 
-export default function Header({ login, logged, handleLocale }: HeaderProps) {
+function Header({ login, logged, handleLocale, locale, intl, localesArray }: HeaderProps) {
   const classes = useStyles();
 
   const { theme, toggleTheme } = useContext(ThemeContext);
+
+  const { formatMessage } = intl;
+
+  const changeLocale = (e) => {
+    handleLocale(e.target.value);
+  };
 
   return (
     <div className={classes.root}>
@@ -54,23 +69,22 @@ export default function Header({ login, logged, handleLocale }: HeaderProps) {
             onChange={toggleTheme}
             inputProps={{ 'aria-label': 'ThemeToggle' }}
           />
-          <InputLabel id="language-selector"><FormattedMessage id="language.es" default="default" /></InputLabel>
-          <Select
-            labelId="language-selector"
-            id="demo-simple-select-filled"
-            value="Idioma"
-            onChange={(e) => handleLocale(e.target.value)}
-          >
-            <MenuItem value="es">Español</MenuItem>
-            <MenuItem value="en">Ingles</MenuItem>
-            <MenuItem value="de">Aleman</MenuItem>
-            <MenuItem value="fr">Frances</MenuItem>
-            <MenuItem value="pt">Portugues</MenuItem>
-          </Select>
+          <FormControl variant="outlined" className={classes.formControl}>
+            <InputLabel id="language-selector">{formatMessage({ id: `language.${locale}`})}</InputLabel>
+            <Select
+              labelId="language-selector"
+              id="demo-simple-select-filled"
+              onChange={changeLocale}
+            >
+             {localesArray.map(lang => <Link key={lang} to="de"><MenuItem value={lang}>{formatMessage({ id: `language.${lang}`})}</MenuItem></Link>)}
+            </Select>
+          </FormControl>
           <Button color="inherit" onClick={login}>{ logged ? 'Welcome' : 'Login'}</Button>
         </Toolbar>
       </AppBar>
     </div>
   );
 }
+
+export default injectIntl(Header);
 
