@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import ReactDOM from 'react-dom';
+import * as firebase from 'firebase';
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,6 +12,9 @@ import App from './containers/App/index';
 import Home from './containers/Home/Home';
 import Profile from './containers/Profile/index';
 import './styles.scss';
+import { firebaseConfig } from './helpers/config';
+
+const app = firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(
   <React.StrictMode>

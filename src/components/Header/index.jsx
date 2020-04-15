@@ -20,7 +20,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Header() {
+export type HeaderProps = {
+  login: Function,
+  logged: boolean,
+};
+
+export default function Header({ login, logged }: HeaderProps) {
   const classes = useStyles();
 
   return (
@@ -33,7 +38,7 @@ export default function Header() {
           <Typography variant="h6" className={classes.title}>
             Social Media App
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit" onClick={login}>{ logged ? 'Welcome' : 'Login'}</Button>
         </Toolbar>
       </AppBar>
     </div>
