@@ -1,5 +1,6 @@
 // @flow
 import React, { useContext }  from 'react';
+import { FormattedMessage } from 'react-intl';
 import { ThemeContext } from '../../context/ThemeProvider';
 import { makeStyles } from '@material-ui/core/styles';
 import { 
@@ -8,7 +9,10 @@ import {
   Typography, 
   Button, 
   IconButton, 
-  Switch 
+  Switch,
+  InputLabel,
+  MenuItem,
+  Select
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 
@@ -27,9 +31,10 @@ const useStyles = makeStyles((theme) => ({
 export type HeaderProps = {
   login: Function,
   logged: boolean,
+  handleLocale: Function,
 };
 
-export default function Header({ login, logged }: HeaderProps) {
+export default function Header({ login, logged, handleLocale }: HeaderProps) {
   const classes = useStyles();
 
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -49,6 +54,19 @@ export default function Header({ login, logged }: HeaderProps) {
             onChange={toggleTheme}
             inputProps={{ 'aria-label': 'ThemeToggle' }}
           />
+          <InputLabel id="language-selector"><FormattedMessage id="language.es" default="default" /></InputLabel>
+          <Select
+            labelId="language-selector"
+            id="demo-simple-select-filled"
+            value="Idioma"
+            onChange={(e) => handleLocale(e.target.value)}
+          >
+            <MenuItem value="es">Español</MenuItem>
+            <MenuItem value="en">Ingles</MenuItem>
+            <MenuItem value="de">Aleman</MenuItem>
+            <MenuItem value="fr">Frances</MenuItem>
+            <MenuItem value="pt">Portugues</MenuItem>
+          </Select>
           <Button color="inherit" onClick={login}>{ logged ? 'Welcome' : 'Login'}</Button>
         </Toolbar>
       </AppBar>
