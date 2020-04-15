@@ -29,6 +29,7 @@ ReactDOM.render(
         <Router>
           <Switch>
             <Route
+              exact
               path={`/:locale(${availableLocales})`}     
               render={({ match }) => (
                 <App>
