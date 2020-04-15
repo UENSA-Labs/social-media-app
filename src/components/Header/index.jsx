@@ -175,7 +175,7 @@ function Header({
           {/* LocaleSelector */}
           {/* TODO: Convert to stateless Components */}
           <FormControl variant="outlined" className={classes.formControl}>
-            <InputLabel id="language-selector" className={classes.label}>Idioma</InputLabel>
+            <InputLabel id="language-selector" className={classes.label}><FormattedMessage id="language" default="Idioma"/></InputLabel>
             <Select
               labelId="language-selector"
               id="demo-simple-select-filled"
@@ -187,7 +187,7 @@ function Header({
 
           {/* Login */}
           {/* TODO: Convert to stateless Components */}
-          <Button color="inherit" onClick={login}>{ logged ? 'Welcome' : 'Login'}</Button>
+          <Button color="inherit" onClick={login}>{ logged ? formatMessage({ id: 'welcome'}) : formatMessage({ id: 'login'})}</Button>
         </Toolbar>
       </AppBar>
     </div>
