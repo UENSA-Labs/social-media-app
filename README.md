@@ -2,8 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts EDICION
 
-In the project directory, you can run:
-
+In the project directory, you can run: Position Fixed
 ### `yarn start`
 
 Runs the app in the development mode.<br />
