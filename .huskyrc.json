@@ -1,5 +1,4 @@
 {
   "hooks": {
-    "post-rewrite": "npm install"
   }
 }
