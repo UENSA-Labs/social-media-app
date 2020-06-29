@@ -1,11 +1,11 @@
 {
-  "language": "Idioma",
-  "language.es": "Español",
-  "language.fr": "Frances",
-  "language.de": "Alemán",
-  "language.en": "Inglés",
-  "language.pt": "Portugues",
-  "login": "Login",
-  "welcome": "Bienvenido",
+  "language": "Linguagem",
+  "language.es": "Espanhol",
+  "language.fr": "Francês",
+  "language.de": "Alemão",
+  "language.en": "Inglês",
+  "language.pt": "Português",
+  "login": "Conecte-se",
+  "welcome": "Bem-vindo",
   "github": "Github"
 }
